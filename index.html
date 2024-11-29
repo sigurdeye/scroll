@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ancient Scroll</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <button class="snow-toggle">Toggle Snow</button>
+
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <p>Lorem ipsum dolor sit amet, <span class="sound-word">consectetur</span> adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <span class="reveal-word" data-target="p1">nisi</span>.</p>
+            
+            <p class="hidden-paragraph" id="p1">Ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <span class="reveal-word" data-target="p2">pariatur</span>.</p>
+            
+            <p class="hidden-paragraph" id="p2">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est <span class="reveal-word" data-target="p3">laborum</span>.</p>
+
+            <p class="hidden-paragraph" id="p3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem <span class="reveal-word" data-target="p4">accusantium</span> doloremque laudantium.</p>
+
+            <p class="hidden-paragraph" id="p4">Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt <span class="reveal-word" data-target="p5">explicabo</span>.</p>
+
+            <p class="hidden-paragraph" id="p5">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut <span class="reveal-word" data-target="p6">fugit</span>.</p>
+
+            <p class="hidden-paragraph" id="p6">Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi <span class="reveal-word" data-target="p7">nesciunt</span>.</p>
+
+            <p class="hidden-paragraph" id="p7">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci <span class="reveal-word" data-target="p8">velit</span>.</p>
+
+            <p class="hidden-paragraph" id="p8">Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat <span class="reveal-word" data-target="p9">voluptatem</span>.</p>
+
+            <p class="hidden-paragraph" id="p9">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit <span class="reveal-word" data-target="p10">laboriosam</span>.</p>
+
+            <p class="hidden-paragraph" id="p10">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae <span class="reveal-word" data-target="p11">consequatur</span>.</p>
+
+            <p class="hidden-paragraph" id="p11">Vel illum qui dolorem eum fugiat quo voluptas nulla <span class="reveal-word" data-target="p12">pariatur</span>.</p>
+
+            <p class="hidden-paragraph" id="p12">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium <span class="reveal-word" data-target="p13">voluptatum</span>.</p>
+
+            <p class="hidden-paragraph" id="p13">Nulla facilisi. <span class="sound-word">Maecenas</span> tempus nunc sit amet lorem tempor, vel porttitor nisi hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia <span class="reveal-word" data-target="p14">curae</span>.</p>
+
+            <p class="hidden-paragraph" id="p14">Praesent vehicula libero eget dolor sollicitudin maximus. Nullam tempus eros at risus mollis, non faucibus dui pulvinar. Integer commodo magna vel ex condimentum <span class="reveal-word" data-target="p15">hendrerit</span>.</p>
+
+            <p class="hidden-paragraph" id="p15">Fusce dignissim neque vitae justo vestibulum euismod. Suspendisse potenti. Sed fringilla massa non nunc feugiat, at condimentum odio <span class="reveal-word" data-target="p16">ultrices</span>.</p>
+
+            <p class="hidden-paragraph" id="p16">Nunc maximus sapien vitae <span class="sound-word">vestibulum</span> consequat. Praesent vehicula nunc nec massa condimentum, at pulvinar metus <span class="reveal-word" data-target="p17">sollicitudin</span>.</p>
+
+            <p class="hidden-paragraph" id="p17">Donec sagittis <span class="sound-word">lacinia</span> purus, vitae hendrerit risus. Aliquam erat volutpat. Vivamus <span class="sound-word">elementum</span> sem sed sapien <span class="reveal-word" data-target="p18">pellentesque</span>.</p>
+
+            <p class="hidden-paragraph" id="p18">Curabitur ac nisi vitae nunc <span class="sound-word">scelerisque</span> tincidunt. Sed dictum eros at risus <span class="reveal-word" data-target="p19">condimentum</span>.</p>
+
+            <p class="hidden-paragraph" id="p19">Vestibulum ante ipsum primis in <span class="sound-word">faucibus</span> orci luctus et ultrices posuere cubilia <span class="reveal-word" data-target="p20">curae</span>.</p>
+
+            <p class="hidden-paragraph" id="p20">Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh <span class="reveal-word" data-target="p21">elementum</span>.</p>
+
+            <p class="hidden-paragraph" id="p21">Duis sagittis ipsum. <span class="sound-word">Praesent</span> mauris. Fusce nec tellus sed augue semper <span class="reveal-word" data-target="p22">porta</span>.</p>
+
+            <p class="hidden-paragraph" id="p22">Mauris massa. <span class="sound-word">Vestibulum</span> lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia <span class="reveal-word" data-target="p23">nostra</span>.</p>
+
+            <p class="hidden-paragraph" id="p23">Per inceptos himenaeos. <span class="sound-word">Curabitur</span> sodales ligula in libero. Sed dignissim lacinia <span class="reveal-word" data-target="p24">nunc</span>.</p>
+
+            <p class="hidden-paragraph" id="p24">Curabitur tortor. <span class="sound-word">Pellentesque</span> nibh. Aenean quam. In scelerisque sem at <span class="reveal-word" data-target="p25">dolor</span>.</p>
+
+            <p class="hidden-paragraph" id="p25">Maecenas mattis. Sed convallis tristique sem. Proin ut <span class="sound-word">ligula</span> vel nunc egestas <span class="reveal-word" data-target="p26">porttitor</span>.</p>
+
+            <p class="hidden-paragraph" id="p26">Morbi lectus risus, <span class="sound-word">iaculis</span> vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula <span class="reveal-word" data-target="p27">lacinia</span>.</p>
+
+            <p class="hidden-paragraph" id="p27">Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue <span class="sound-word">elementum</span>. Morbi in ipsum <span class="reveal-word" data-target="p28">sit</span>.</p>
+
+            <p class="hidden-paragraph" id="p28">Vivamus in erat ut urna cursus vestibulum. Fusce commodo aliquam arcu. Nam commodo suscipit <span class="reveal-word" data-target="p29">quam</span>.</p>
+
+            <p class="hidden-paragraph" id="p29">Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia <span class="sound-word">nostra</span>, per inceptos <span class="reveal-word" data-target="p30">himenaeos</span>.</p>
+
+            <p class="hidden-paragraph" id="p30">Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis <span class="reveal-word" data-target="p31">turpis</span>.</p>
+
+            <p class="hidden-paragraph" id="p31">Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat <span class="sound-word">imperdiet</span>. Vestibulum <span class="reveal-word" data-target="p32">sapien</span>.</p>
+
+            <p class="hidden-paragraph" id="p32">Proin quam. Etiam ultrices. <span class="sound-word">Suspendisse</span> in justo eu magna luctus suscipit. Sed <span class="reveal-word" data-target="p33">lectus</span>.</p>
+
+            <p class="hidden-paragraph" id="p33">Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget <span class="reveal-word" data-target="p34">diam</span>.</p>
+
+            <p class="hidden-paragraph" id="p34">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie <span class="reveal-word" data-target="p35">dui</span>.</p>
+
+            <p class="hidden-paragraph" id="p35">Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum <span class="reveal-word" data-target="p36">sit</span>.</p>
+
+            <p class="hidden-paragraph" id="p36">Pellentesque nibh. <span class="sound-word">Aenean</span> quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique <span class="reveal-word" data-target="p37">sem</span>.</p>
+
+            <p class="hidden-paragraph" id="p37">Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, <span class="reveal-word" data-target="p38">massa</span>.</p>
+
+            <p class="hidden-paragraph" id="p38">Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, <span class="reveal-word" data-target="p39">nibh</span>.</p>
+
+            <p class="hidden-paragraph" id="p39">Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos <span class="reveal-word" data-target="p40">himenaeos</span>.</p>
+
+            <p class="hidden-paragraph" id="p40">Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla <span class="sound-word">facilisi</span>. The End.</p>
+        </div>
+    </div>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        const scrollContainer = document.querySelector('.scroll-container');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Hide cursor when scrollbar is being dragged
+        let isScrolling = false;
+        scrollContainer.addEventListener('mousedown', (e) => {
+            if (e.offsetX > (scrollContainer.clientWidth - 20)) {
+                cursor.style.opacity = '0';
+                isScrolling = true;
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isScrolling) {
+                cursor.style.opacity = '1';
+                isScrolling = false;
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            if (isScrolling) {
+                cursor.style.opacity = '1';
+                isScrolling = false;
+            }
+        });
+
+        // Update hover effect
+        document.querySelectorAll('p').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursor.style.borderColor = 'rgba(0, 255, 0, 0.6)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.borderColor = 'rgba(0, 255, 0, 0.3)';
+            });
+        });
+
+        const hitSound = new Audio('assets/sounds/hit.wav');
+
+        document.querySelectorAll('.reveal-word').forEach(word => {
+            word.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const targetParagraph = document.getElementById(word.dataset.target);
+                if (targetParagraph) {
+                    targetParagraph.classList.add('show');
+                    hitSound.currentTime = 0;
+                    hitSound.play();
+                }
+            });
+        });
+
+        // Add sound functionality
+        const sounds = [
+            'assets/sounds/level_up.wav',
+            'assets/sounds/shoot.wav',
+            'assets/sounds/hit.wav'
+        ];
+
+        document.querySelectorAll('.sound-word').forEach(word => {
+            word.addEventListener('click', () => {
+                const randomSound = new Audio(sounds[Math.floor(Math.random() * sounds.length)]);
+                randomSound.play();
+            });
+        });
+    </script>
+    <script src="snow.js"></script>
+</body>
+</html> 

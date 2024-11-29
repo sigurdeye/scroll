@@ -1,0 +1,615 @@
+/* Import additional font for mystical symbols */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
+
+/* Add mystical symbols that float in the background */
+@keyframes floatSymbol {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -10px) rotate(5deg); }
+    75% { transform: translate(-10px, 10px) rotate(-5deg); }
+}
+
+@keyframes mysticalGlow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2)); }
+    50% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); }
+}
+
+/* Update the floating symbols animation */
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) translateX(calc(var(--random-x) * 100px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Update the body::after content */
+body::after {
+    content: '✧';  /* Single symbol for better control */
+    position: fixed;
+    font-size: 24px;
+    color: rgba(255, 215, 0, 0.1);
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    animation: none; /* Remove previous animation */
+}
+
+/* Add multiple random symbols using pseudo-elements */
+@keyframes symbolFloat1 {
+    0% { transform: translate(0, -10vh); }
+    100% { transform: translate(calc(random() * 50px), 100vh); }
+}
+
+@keyframes symbolFloat2 {
+    0% { transform: translate(0, -10vh); }
+    100% { transform: translate(calc(random() * -50px), 100vh); }
+}
+
+/* Create multiple symbols using generated content */
+.symbol {
+    position: fixed;
+    color: rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    z-index: -1;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced body background */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: 
+        linear-gradient(45deg, #1a0f0f 0%, #2a1f1f 100%),
+        repeating-linear-gradient(45deg, 
+            transparent 0%, 
+            transparent 2%, 
+            rgba(139, 69, 19, 0.05) 2%, 
+            rgba(139, 69, 19, 0.05) 4%
+        );
+    position: relative;
+    overflow: hidden;
+    cursor: none; /* Hide default cursor */
+}
+
+/* Custom cursor */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 255, 0, 0.3);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: border-color 0.3s ease, opacity 0.2s ease;
+}
+
+/* Enhance scroll container */
+.scroll-container {
+    width: 90%;
+    max-width: 800px;
+    height: 85vh;
+    padding: 20px;
+    background: rgba(244, 228, 188, 0.95);
+    border-radius: 10px;
+    box-shadow: 
+        0 0 20px rgba(139, 69, 19, 0.2),
+        0 0 40px rgba(139, 69, 19, 0.1),
+        inset 0 0 50px rgba(139, 69, 19, 0.1);
+    overflow-y: auto;
+    position: relative;
+    animation: container-glow 4s ease-in-out infinite;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    margin: 20px auto;
+}
+
+/* Add decorative corners */
+.scroll-container::before,
+.scroll-container::after,
+.scroll-content::before,
+.scroll-content::after {
+    content: '✦';
+    position: absolute;
+    font-size: 24px;
+    color: rgba(139, 69, 19, 0.3);
+    animation: mysticalGlow 4s ease-in-out infinite;
+}
+
+.scroll-container::before { top: 10px; left: 10px; }
+.scroll-container::after { top: 10px; right: 10px; }
+.scroll-content::before { bottom: 10px; left: 10px; }
+.scroll-content::after { bottom: 10px; right: 10px; }
+
+/* Enhanced text styling */
+.scroll-content {
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #2c1810;
+    padding: 10px 20px;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* First paragraph specific styling */
+p:first-of-type {
+    padding-left: 60px;
+}
+
+/* Update first letter styling */
+p:first-of-type::first-letter {
+    font-size: 3.5em;
+    font-family: 'Crimson Text', serif;
+    float: left;
+    margin-right: 10px;
+    margin-left: -60px;
+    line-height: 1;
+    color: #c17f59;
+    text-shadow: 2px 2px 4px rgba(193, 127, 89, 0.3);
+}
+
+/* Enhanced paragraph animations */
+p {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in 0.8s ease forwards;
+    position: relative;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+/* Add hover effect to paragraphs */
+p:hover {
+    color: #000;
+    text-shadow: 0 0 1px rgba(0,0,0,0.2);
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 15px;
+    opacity: 0.5;
+}
+
+.scroll-indicator::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: rgba(139, 69, 19, 0.5);
+    border-radius: 50%;
+    animation: scrollIndicator 2s infinite;
+}
+
+@keyframes scrollIndicator {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, 20px); opacity: 0; }
+}
+
+/* Rest of your existing styles... */
+
+@keyframes container-glow {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(139, 69, 19, 0.2),
+            0 0 40px rgba(139, 69, 19, 0.1),
+            inset 0 0 50px rgba(139, 69, 19, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 0 30px rgba(139, 69, 19, 0.3),
+            0 0 60px rgba(139, 69, 19, 0.2),
+            inset 0 0 70px rgba(139, 69, 19, 0.15);
+    }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(139, 69, 19, 0.3);
+    border-radius: 6px;
+    border: 3px solid rgba(244, 228, 188, 0.5);
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 69, 19, 0.5);
+}
+
+/* Update the snow toggle button position */
+.snow-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Crimson Text', serif;
+    transition: all 0.3s ease;
+    z-index: 2;
+    width: auto;
+    height: auto;
+}
+
+.snow-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Remove all music player related styles */
+.music-player,
+.music-player-inner,
+.player-controls,
+.song-info,
+.volume-control {
+    /* Remove these style blocks */
+}
+
+/* Add these styles for the special word and animation container */
+.scary-word {
+    color: #FF69B4;  /* Hot pink */
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline dotted;
+    transition: all 0.3s ease;
+}
+
+.scary-word:hover {
+    color: #FF1493;  /* Deeper pink */
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.3);
+}
+
+.animation-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.animation-container img {
+    width: 800px;
+    height: auto;
+    image-rendering: pixelated;             /* Modern browsers */
+    image-rendering: -moz-crisp-edges;      /* Firefox */
+    image-rendering: crisp-edges;           /* Safari */
+    -ms-interpolation-mode: nearest-neighbor; /* IE (just in case) */
+}
+
+/* Add these styles for hidden paragraphs */
+p.hidden-paragraph {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+p.hidden-paragraph.show {
+    display: block;
+    animation: fade-in 0.8s ease forwards;
+}
+
+/* Add styles for settings icon and menu */
+.settings-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.settings-icon:hover {
+    color: rgba(255, 255, 255, 0.5);
+    transform: rotate(90deg);
+}
+
+.settings-menu {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    background: rgba(30, 30, 30, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 2;
+    display: none;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.settings-menu.show {
+    display: block;
+}
+
+.settings-menu label {
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Crimson Text', serif;
+}
+
+.settings-menu input[type="range"] {
+    width: 150px;
+    height: 5px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+}
+
+.settings-menu input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-menu input[type="range"]::-webkit-slider-thumb:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+/* Add styles for interactive text triggers */
+.game-text-trigger {
+    color: #8B4513;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.game-text-trigger:hover {
+    color: #c17f59;
+    text-shadow: 0 0 8px rgba(139, 69, 19, 0.3);
+}
+
+/* Image popup styling */
+.game-image-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 1000;
+    background: rgba(255, 192, 203, 0.95);  /* Pink background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    border: 2px solid #FF69B4;
+}
+
+.game-image-popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.game-image-popup img {
+    max-width: 800px;  /* Doubled from 400px */
+    max-height: 900px; /* Increased from 500px */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    display: block;
+}
+
+/* Character specific classes */
+.bunny-happy, .bunny-sad, .ninja-cat, .kimono-girl, .farmer-girl {
+    /* Remove these classes */
+}
+
+/* Add this to your existing CSS */
+.sound-word {
+    color: #4a90e2;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.sound-word:hover {
+    color: #2171cd;
+}
+
+/* Add glow effect */
+.sound-word {
+    text-shadow: 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.sound-word:hover {
+    text-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+}
+
+/* Add subtle animation */
+@keyframes gentle-pulse {
+    0% { text-shadow: 0 0 2px rgba(74, 144, 226, 0.2); }
+    50% { text-shadow: 0 0 4px rgba(74, 144, 226, 0.4); }
+    100% { text-shadow: 0 0 2px rgba(74, 144, 226, 0.2); }
+}
+
+.sound-word {
+    animation: gentle-pulse 2s infinite;
+}
+
+/* Add these styles for reveal words */
+.reveal-word {
+    color: #ff6b6b;  /* Coral red color */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    animation: reveal-pulse 2s infinite;
+}
+
+.reveal-word:hover {
+    color: #ff4757;
+    text-shadow: 0 0 8px rgba(255, 107, 107, 0.6);
+}
+
+@keyframes reveal-pulse {
+    0% { text-shadow: 0 0 2px rgba(255, 107, 107, 0.2); }
+    50% { text-shadow: 0 0 4px rgba(255, 107, 107, 0.4); }
+    100% { text-shadow: 0 0 2px rgba(255, 107, 107, 0.2); }
+}
+
+/* Update hidden paragraph styles */
+.hidden-paragraph {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hidden-paragraph.show {
+    display: block;
+    animation: fade-in 0.8s ease forwards;
+}
+
+/* Add these media queries and update existing styles */
+
+/* Media queries for different screen sizes */
+@media screen and (max-width: 768px) {
+    .scroll-container {
+        width: 95%;
+        height: 90vh;
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .scroll-content {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    p:first-of-type {
+        padding-left: 40px; /* Reduced padding for first paragraph */
+    }
+
+    p:first-of-type::first-letter {
+        font-size: 2.5em; /* Smaller drop cap */
+        margin-left: -40px;
+    }
+
+    /* Adjust decorative corners for mobile */
+    .scroll-container::before,
+    .scroll-container::after,
+    .scroll-content::before,
+    .scroll-content::after {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .scroll-container {
+        width: 98%;
+        height: 92vh;
+        padding: 10px;
+        margin: 5px auto;
+    }
+
+    .scroll-content {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    p:first-of-type {
+        padding-left: 30px;
+    }
+
+    p:first-of-type::first-letter {
+        font-size: 2em;
+        margin-left: -30px;
+    }
+
+    /* Adjust snow toggle button for mobile */
+    .snow-toggle {
+        right: 10px;
+        bottom: 10px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    /* Adjust scrollbar for mobile */
+    .scroll-container::-webkit-scrollbar {
+        width: 8px;
+    }
+}
+
+/* Add touch device optimizations */
+@media (hover: none) {
+    /* Hide custom cursor on touch devices */
+    .cursor {
+        display: none;
+    }
+
+    /* Enhance tap targets */
+    .sound-word, .reveal-word {
+        padding: 2px 4px;
+        margin: 0 2px;
+    }
+
+    /* Adjust hover states for touch */
+    p:hover {
+        transform: none;
+    }
+
+    .sound-word:active,
+    .reveal-word:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Fix viewport height issues on mobile */
+@supports (-webkit-touch-callout: none) {
+    .scroll-container {
+        height: -webkit-fill-available;
+        max-height: 85vh;
+    }
+}
+ 
