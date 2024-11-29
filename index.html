@@ -154,6 +154,14 @@
                     targetParagraph.classList.add('show');
                     hitSound.currentTime = 0;
                     hitSound.play();
+                    
+                    // Add smooth scrolling to the newly revealed paragraph
+                    setTimeout(() => {
+                        targetParagraph.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center'
+                        });
+                    }, 100); // Small delay to ensure the paragraph is rendered
                 }
             });
         });
